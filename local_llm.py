@@ -3,7 +3,7 @@ import streamlit as st
 
 class LocalLLMAPI:
     def __init__(self):
-        self.host = st.secrets["lm_studio"]["http://127.0.0.1:1234"]   # e.g., "http://your-hostname:port"
+        self.host = st.secrets["lm_studio"]["http://192.168.1.38:1234"]   # e.g., "http://your-hostname:port"
         self.model = st.secrets["lm_studio"]["llama-3.2-1b-instruct"] # e.g., "llama-3.2-1b-instruct"
         self.temperature = float(st.secrets["lm_studio"].get("temperature", 0.7))
         self.base_url = f"{self.host}/v1/chat/completions"
