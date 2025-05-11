@@ -51,6 +51,9 @@ def main():
 
         st.success("💾 Embeddings stored in vector DB (FAISS)")
 
+        #api_key printer
+        st.write(GeminiAPI.printapi())
+        
         memory = ChatMemoryManager(st.session_state)
 
         st.header("🗣️ Interactive Chat Interface")
