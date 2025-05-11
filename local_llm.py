@@ -1,14 +1,15 @@
-# components/LocalLLMAPI.py
-
 import requests
 import streamlit as st
 
-
 class LocalLLMAPI:
-    def __init__(self, host= "http://127.0.0.1:1234", model= "llama-3.2-1b-instruct", temperature=0.7):
-        self.base_url = f"{host}/v1/chat/completions"
-        self.model = model
-        self.temperature = temperature
+    def __init__(self):
+        # Use Streamlit secrets to configure host, port, and model
+        config = st.secrets["local_llm"]
+        host = config.get("host", "http://127.0.0.1")
+        port = config.get("port", "1234")
+        self.base_url = f"{host}:{port}/v1/chat/completions"
+        self.model = config.get("model", "llama-3.2-1b-instruct")
+        self.temperature = config.get("temperature", 0.7)
         self.headers = {"Content-Type": "application/json"}
 
     def generate_response(self, prompt: str) -> str:
@@ -26,5 +27,5 @@ class LocalLLMAPI:
             data = response.json()
             return data["choices"][0]["message"]["content"]
         except requests.exceptions.RequestException as e:
-            print(f"[LocalLLMAPI ERROR] {e}")
-            return "Error: Could not generate a response from local model."
+            st.error(f"[LocalLLMAPI ERROR] {e}")
+            return "Error: Could not generate a response from the local model."
