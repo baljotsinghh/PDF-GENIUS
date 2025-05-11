@@ -1,6 +1,8 @@
 # components/LocalLLMAPI.py
 
 import requests
+import streamlit as st
+
 
 class LocalLLMAPI:
     def __init__(self, host="http://127.0.0.1", port=1234, model="llama-3.2-1b-instruct", temperature=0.7):
