@@ -8,7 +8,7 @@ class GeminiAPI:
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not found in environment variables.")
         self.url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key={self.api_key}"
-    def print_api(self):
+    def printapi(self):
         return self.api_key
         
     def ask(self, context_chunks, user_question):
