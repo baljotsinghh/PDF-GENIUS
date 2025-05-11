@@ -5,7 +5,7 @@ import streamlit as st
 
 
 class LocalLLMAPI:
-    def __init__(self, host= st.secrets("Local_LLM_api"), model= st.secrets("Model_api_identifier"), temperature=0.7):
+    def __init__(self, host= st.secrets("LOCAL_LLM_SERVER"), model= st.secrets("MODEL_API_IDENTIFIER"), temperature=0.7):
         self.base_url = f"{host}/v1/chat/completions"
         self.model = model
         self.temperature = temperature
