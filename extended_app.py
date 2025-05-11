@@ -12,7 +12,7 @@ import os
 torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)]
 
 def main():
-    st.set_page_config(page_title="Smart PDF Chatbot", layout="centered")
+    st.set_page_config(page_title="PDF-GENIUS", layout="centered")
 
     # Sidebar UI
     st.sidebar.title("⚙️ Settings")
