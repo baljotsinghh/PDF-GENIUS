@@ -7,7 +7,7 @@ class GeminiAPI:
         self.api_key = st.secrets("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not found in environment variables.")
-        self.url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key={self.api_key}"
+        self.url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.api_key}"
         
     def ask(self, context_chunks, user_question):
         context = "\n\n".join(context_chunks)
