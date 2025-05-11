@@ -22,7 +22,7 @@ def main():
     if st.sidebar.button("🧹 Reset Chat Memory"):
         st.session_state.chat_history = []
 
-    st.title("📄 Smart PDF Chatbot with Memory")
+    st.title("📄 PDF GENIUS")
     st.markdown("Ask intelligent questions from your uploaded PDF with contextual memory 🔁")
 
     uploaded_file = st.file_uploader("📤 Upload a PDF file", type=["pdf"])
