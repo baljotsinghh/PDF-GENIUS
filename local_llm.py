@@ -5,8 +5,8 @@ import streamlit as st
 
 
 class LocalLLMAPI:
-    def __init__(self, host="http://127.0.0.1", port=1234, model="llama-3.2-1b-instruct", temperature=0.7):
-        self.base_url = f"{host}:{port}/v1/chat/completions"
+    def __init__(self, host= st.secrets("Local_LLM_api"), model= st.secrets("Model_api_identifier"), temperature=0.7):
+        self.base_url = f"{host}/v1/chat/completions"
         self.model = model
         self.temperature = temperature
         self.headers = {"Content-Type": "application/json"}
